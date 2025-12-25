@@ -48,7 +48,7 @@ JOIN doctor d
 JOIN department dep
     ON a.dept_id = dep.dept_id;
 
---patient + inpatient_care + nurse_assignment + staff
+--patient + inpatient_care + nurse_assigment + staff
 SELECT 
     p.first_name || ' ' || p.last_name AS patient_name,
     i.room_code,
@@ -57,7 +57,7 @@ SELECT
 FROM inpatient_care i
 JOIN patient p
     ON i.patient_id = p.patient_id
-JOIN nurse_assignment n
+JOIN nurse_assigment n
     ON i.inpatientcare_code = n.inpatientcare_code
 JOIN staff s
     ON n.staff_id = s.staff_id;
