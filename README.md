@@ -30,31 +30,6 @@
 <b>HospitalDB-ManagementSystem</b> merupakan proyek yang digunakan untuk implementasi perancangan basis data relasional rumah sakit sederhana menggunakan SQL. Proyek ini digunakan untuk memenuhi tugas mata kuliah <b>Manajemen Basis Data</b>.
 </div>
 
-<h2>Kontributor</h2>
-<table>
-  <tr>
-    <th align="left">NIM</th>
-    <th align="left">Nama</th>
-  </tr>
-  <tr>
-    <td>M0124001</td>
-    <td>Alzena Maritza Putri Sutrisno</td>
-  </tr>
-  <tr>
-    <td>M0124015</td>
-    <td>Ramadhan Imanur Rochim</td>
-  </tr>
-  <tr>
-    <td>M0124022</td>
-    <td>Andhika Rian Wira</td>
-  </tr>
-  <tr>
-    <td>M0124091</td>
-    <td>Reza Nur Latifah</td>
-  </tr>
-</table>
-<hr>
-
 <h2>Tujuan</h2>
 <ul>
   <li>Menerapkan konsep dasar Manajemen Basis Data</li>
