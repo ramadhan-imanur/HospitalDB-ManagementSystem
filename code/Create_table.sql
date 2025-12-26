@@ -42,7 +42,7 @@ CREATE TABLE doctor (
     doctor_id       INT PRIMARY KEY,
     first_name      VARCHAR(50) NOT NULL,
     last_name       VARCHAR(50) NOT NULL,
-    schadule        VARCHAR(50),
+    schedule        VARCHAR(50),
     contact_person  VARCHAR(20),
     dept_id         INT,
     FOREIGN KEY (dept_id) REFERENCES department(dept_id)
@@ -113,4 +113,5 @@ CREATE TABLE nurse (
     specialization    VARCHAR(50),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+
 
