@@ -106,20 +106,20 @@ insert into appointment (appointment_code, patient_id, dept_id, doctor_id, appoi
 (510, 10010, 205, 9010, '2025-12-13', '19:30');
 
 -- MEDICAL RECORD
-insert into medical_record values
-(20001, 10001, 9001, 501, 201, 'Demam tinggi', 'Istirahat dan konsumsi makanan bergizi'),
-(20002, 10002, 9002, 502, 202, 'Batuk pilek', 'Istirahat dan konsumsi makanan bergizi'),
-(20003, 10003, 9003, 503, 203, 'Luka sayatan di tangan', 'Mengganti perban luka secara berkala '),
-(20004, 10004, 9004, 504, 204, 'Gejala tipes', 'Observasi secara berkala dan istirahat total'),
-(20005, 10005, 9005, 505, 205, 'Sakit gigi berlubang', 'Rutin kontrol ke dokter gigi dan menjaga kebersihan gigi'),
-(20006, 10006, 9006, 506, 206, 'Telinga berdenging', 'Hindari masuk air dan jaga kebersihan telinga'),
-(20007, 10007, 9007, 507, 207, 'Gatal-gatal di kulit', 'Hindari alergen dan gunakan salep sesuai resep'),
-(20008, 10008, 9008, 508, 208, 'Mata merah dan perih', 'Kompres hangat dan berikan obat tetes mata sesuai resep'),
-(20009, 10009, 9009, 509, 204, 'Nyeri otot ringan', 'Olahraga ringan dan pemanasan sebelum aktivitas'),
-(20010, 10010, 9010, 510, 205, 'Gusi bengkak', 'Kontrol ke dokter gigi dan menjaga kebersihan mulut');
+insert into medical_record (medical_record_code, patient_id, doctor_id, appointment_code, diagnosis, treatment) values
+(20001, 10001, 9001, 501, 201, 'Demam tinggi', 'Pemasangan infus cairan dan kompres hangat'),
+(20002, 10002, 9002, 502, 202, 'Batuk pilek', 'Terapi uap (Nebulizer) untuk pengencer dahak'),
+(20003, 10003, 9003, 503, 203, 'Luka sayatan di tangan', 'Pembersihan luka dan jahit luka serta persiapan rawat inap untuk observasi'),
+(20004, 10004, 9004, 504, 204, 'Gejala tipes', 'Pemasangan infus cairan dan persiapan rawat inap (Bed Rest)'),
+(20005, 10005, 9005, 505, 205, 'Sakit gigi berlubang', 'Pembersihan karies gigi dan tambal gigi'),
+(20006, 10006, 9006, 506, 206, 'Telinga berdenging', 'Pembersihan telinga dan tes pendengaran'),
+(20007, 10007, 9007, 507, 207, 'Gatal-gatal di kulit', 'Pemberian suntikan anti-alergi dan penggunaan salep di area yang gatal'),
+(20008, 10008, 9008, 508, 208, 'Mata merah dan perih', 'Pencucian mata dengan cairan steril dan kompres'),
+(20009, 10009, 9009, 509, 204, 'Nyeri otot ringan', 'Pemasangan perban elastis pada area nyeri'),
+(20010, 10010, 9010, 510, 205, 'Gusi bengkak', 'Scaling dan polishing (pembersihan karang gigi)');
 
 -- MEDICAL_RECORD_MEDICINE
-insert into medical_record_medicine values
+insert into medical_record_medicine (medical_record_code, medicine_code, dosage) values
 (20001, 001, '500 mg 3x1/hari'),       
 (20002, 007, '10 mg 2x1/hari'),        
 (20003, 003, '400 mg 3x1/hari'),       
@@ -132,16 +132,9 @@ insert into medical_record_medicine values
 (20010, 002, '500 mg 2x1/hari');
 
 -- INPATIENT_CARE (pasien yang rawat inap: 20003, 20004)
-insert into inpatient_care values
+insert into inpatient_care (inpatientcare_code, patient_id, room_code, assignment_date, end_date) values
 (301, 10003, 'R103', '2025-12-02', '2025-12-04'),  
 (302, 10004, 'R104', '2025-12-02', '2025-12-06');  
-
--- NURSE ASSIGNMENT
-insert into nurse_assigment values
-(1, 7001, 301, 'Pagi'),
-(2, 7002, 301, 'Siang'),
-(3, 7007, 302, 'Pagi'),
-(4, 7008, 302, 'Malam');
 
 -- NURSE
 insert into nurse (staff_id, specialization) values
@@ -149,7 +142,17 @@ insert into nurse (staff_id, specialization) values
 (7002, 'Perawat Umum'),       
 (7007, 'Perawat Umum'),       
 (7008, 'Perawat Umum'),       
-(7006, 'Perawat Umum');       
+(7006, 'Perawat Umum');     
+
+-- NURSE ASSIGNMENT
+insert into nurse_assigment (assignment_id, staff_id, inpatientcare_code, shift) values
+(1, 7001, 301, 'Pagi'),
+(2, 7002, 301, 'Siang'),
+(3, 7007, 302, 'Pagi'),
+(4, 7008, 302, 'Malam');
+
+  
+
 
 
 
