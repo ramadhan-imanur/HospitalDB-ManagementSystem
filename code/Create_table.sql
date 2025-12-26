@@ -55,7 +55,7 @@ CREATE TABLE appointment (
     doctor_id           INT,
     dept_id             INT,
     appointment_time    TIME,
-    appointmenr_date    DATE,
+    appointment_date    DATE,
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
     FOREIGN KEY (dept_id) REFERENCES department(dept_id)
@@ -113,5 +113,6 @@ CREATE TABLE nurse (
     specialization    VARCHAR(50),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+
 
 
