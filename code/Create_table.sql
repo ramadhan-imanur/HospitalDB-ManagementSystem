@@ -42,10 +42,18 @@ CREATE TABLE doctor (
     doctor_id       INT PRIMARY KEY,
     first_name      VARCHAR(50) NOT NULL,
     last_name       VARCHAR(50) NOT NULL,
-    schedule        VARCHAR(50),
     contact_person  VARCHAR(20),
     dept_id         INT,
     FOREIGN KEY (dept_id) REFERENCES department(dept_id)
+);
+
+CREATE TABLE doctor_schedule (
+    schedule_id INT PRIMARY KEY,
+    doctor_id INT,
+    day_of_week VARCHAR(10),
+    start_time TIME,
+    end_time TIME,
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
 
 -- APPOINTMENT
@@ -67,7 +75,7 @@ CREATE TABLE medical_record (
     patient_id          INT,
     doctor_id           INT,
     appointment_code    INT,
-    clinic              INT,
+    clinic_dept_id      INT,
     diagnosis           VARCHAR(150),
     treatment           VARCHAR(150),
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
@@ -79,11 +87,11 @@ CREATE TABLE medical_record (
 -- MEDICAL RECORD (UNTUK OBAT)
 CREATE TABLE medical_record_medicine (
     medical_record_code INT,
-    medical_code        INT,
+    medicine_code        INT,
     dosage              VARCHAR(20),
     PRIMARY KEY (medical_record_code, medical_code),
     FOREIGN KEY (medical_record_code) REFERENCES medical_record(medical_record_code),
-    FOREIGN KEY (medical_code) REFERENCES medicine(medicine_code)
+    FOREIGN KEY (medicine_code) REFERENCES medicine(medicine_code)
 );
 
 -- INPATIENT CARE (PERAWATAN LANJUT)
@@ -91,15 +99,15 @@ CREATE TABLE inpatient_care (
     inpatientcare_code INT PRIMARY KEY,
     patient_id         INT,
     room_code          VARCHAR(5),
-    assigment_date     DATE,
+    assignment_date     DATE,
     end_date           DATE,
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
     FOREIGN KEY (room_code) REFERENCES room(room_code)
 );
 
 -- NURSE ASSIGNMENT
-CREATE TABLE nurse_assigment (
-    assigment_id        INT PRIMARY KEY,
+CREATE TABLE nurse_assignment (
+    assignment_id        INT PRIMARY KEY,
     staff_id            INT,
     inpatientcare_code  INT,
     shift               VARCHAR(20),
@@ -113,6 +121,7 @@ CREATE TABLE nurse (
     specialization    VARCHAR(50),
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
+
 
 
 
